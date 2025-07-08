@@ -106,7 +106,7 @@ int main() {
     cout << "\nSorted Array (Bubble Sort): ";
     for (int i = 0; i < n; i++) cout << arr[i] << " ";
     cout << endl;
-    cout << "Bubble Sort Time: " << duration_cast<duration<double>>(stopBubble - startBubble).count() << " seconds\n";
+    cout << "\nBubble Sort Time: " << duration_cast<duration<double>>(stopBubble - startBubble).count() << " seconds\n";
 
     auto start1 = high_resolution_clock::now();
     int binRes = binarySearch(arr, n, target);
