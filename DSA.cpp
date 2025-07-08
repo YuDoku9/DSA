@@ -32,7 +32,8 @@ int exponentialSearch(int arr[], int n, int target) {
     int i = 1;
     while (i < n && arr[i] <= target)
         i *= 2;
-    return binarySearch(arr, min(i, n - 1) + 1, target);
+    int index = binarySearch(arr, min(i, n - 1) + 1, target);
+    return index;
 }
 
 void quickSort(int arr[], int low, int high) {
@@ -90,7 +91,7 @@ int main() {
         arrMerge[i] = arr[i];
     }
 
-    cout << "\n Generated Numbers:\n";
+    cout << "\nGenerated Numbers:\n";
     for (int i = 0; i < n; i++) {
         cout << arr[i] << " ";
     }
@@ -111,13 +112,13 @@ int main() {
     auto start1 = high_resolution_clock::now();
     int binRes = binarySearch(arr, n, target);
     auto stop1 = high_resolution_clock::now();
-    cout << "\nBinary Search: " << (binRes != -1 ? "Found" : "Not Found") << endl;
+    cout << "\nBinary Search: " << (binRes != -1 ? "Found at index " + to_string(binRes) : "Not Found") << endl;
     cout << "Time: " << duration_cast<microseconds>(stop1 - start1).count() << " microseconds\n";
 
     auto start2 = high_resolution_clock::now();
     int expRes = exponentialSearch(arr, n, target);
     auto stop2 = high_resolution_clock::now();
-    cout << "\nExponential Search: " << (expRes != -1 ? "Found" : "Not Found") << endl;
+    cout << "\nExponential Search: " << (expRes != -1 ? "Found at index " + to_string(expRes) : "Not Found") << endl;
     cout << "Time: " << duration_cast<microseconds>(stop2 - start2).count() << " microseconds\n";
 
     auto start3 = high_resolution_clock::now();
